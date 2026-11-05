@@ -1,0 +1,5 @@
+* text=auto eol=lf
+# WSL2에서 돌리는 스크립트입니다. CRLF 면 bash 가 "set: pipefail: invalid
+# option name" 으로 죽습니다. Windows 에서 편집해도 LF 를 유지합니다.
+*.sh text eol=lf
+*.py text eol=lf

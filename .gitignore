@@ -1,0 +1,34 @@
+# --- 로컬 환경 -------------------------------------------------------
+.venv/
+.venv-linux/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# --- 실행 로그 -------------------------------------------------------
+# 건별 출력은 전부 CSV 에 들어 있고, 로그는 재실행하면 다시 생깁니다.
+*.log
+
+# --- 재생성 가능한 대용량 중간 산출물 --------------------------------
+# AF2 initial guess 가 낸 복합체 100건(약 26 MB). **측정값은 전부**
+# h1_joined.csv / h2_af2_heavy.csv / h2_af2_ca8.csv 와
+# outputs/h1_af2/*_af2.sc 에 남아 있고, 구조 자체는 커밋된 RFdiffusion
+# 백본 + notebooks/H1_dl_binder_design.ipynb 로 재생성됩니다.
+# 그림(fig2·fig3)에 쓴 2건만 예외로 추적해, 07_render.py 가 클론만으로
+# 돌아가게 합니다.
+outputs/h1_af2/epi/*.pdb
+outputs/h1_af2/ctrl/*.pdb
+!outputs/h1_af2/epi/pdl1_epi_23_dldesign_0_cycle1_af2pred.pdb
+!outputs/h1_af2/ctrl/pdl1_ctrl_12_dldesign_0_cycle1_af2pred.pdb
+
+# --- 기타 -------------------------------------------------------------
+*.zip
+*.tar.gz
+
+# --- 지원서 초안 (공개 금지) -----------------------------------------
+# 이 레포는 공개 포트폴리오입니다. 지원서·개인정보는 추적하지 않습니다.
+_application/
+
+# --- 편집 중 백업 ---
+*.bak
+*.bak[0-9]
