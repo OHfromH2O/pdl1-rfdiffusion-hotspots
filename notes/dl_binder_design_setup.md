@@ -3,7 +3,7 @@
 RFdiffusion 백본에 서열을 올리고 계면을 평가하는 다음 단계입니다.
 `github.com/nrbennet/dl_binder_design` — RFdiffusion 논문과 같은 그룹의 표준 후속 파이프라인.
 
-**설치 전에 읽을 것:** 아래 ①~③이 모두 통과해야 ④로 갑니다.
+설치 전에 읽을 것: 아래 ①~③이 모두 통과해야 ④로 갑니다.
 ②에서 막히면 "가벼운 경로"(맨 아래)로 우회하십시오.
 
 ---
@@ -23,7 +23,7 @@ RFdiffusion 백본에 서열을 올리고 계면을 평가하는 다음 단계�
 
 ## ⓿ 게이트가 두 개입니다 — 어느 쪽을 어디서 도는가
 
-H1 은 세 단계이고, **지표가 쓸 만한지 검정하는 게이트가 두 군데**에 있습니다.
+H1 은 세 단계이고, 지표가 쓸 만한지 검정하는 게이트가 두 군데에 있습니다.
 이 문서는 Colab 의 1·2 단계만 다룹니다. 3 단계와 그 게이트는 로컬입니다.
 
 | | 단계 | 어디서 | 게이트 |
@@ -32,10 +32,10 @@ H1 은 세 단계이고, **지표가 쓸 만한지 검정하는 게이트가 두
 | 2 | AF2 initial guess | Colab, **GPU** | **B.** native PD-1 의 `pae_interaction` < 10 |
 | 3 | PyRosetta 계면 점수 | **로컬 WSL2** | **A.** 4ZQK 복합체의 `dG_separated` < 0 |
 
-**A 를 먼저 도십시오.** 1 분이고, 여기서 막히면 Colab 에 1·2 를 설치할
-이유가 줄어듭니다. (2026-11-04 통과: `dG_separated` **-32.74 REU**)
+A 를 먼저 도십시오. 1 분이고, 여기서 막히면 Colab 에 1·2 를 설치할
+이유가 줄어듭니다. (2026-11-04 통과: `dG_separated` -32.74 REU)
 
-**1·2 단계는 노트북으로 정리해 두었습니다** —
+1·2 단계는 노트북으로 정리해 두었습니다.
 `notebooks/H1_dl_binder_design.ipynb`. 아래 ①~③ 은 그 노트북이 무엇을
 왜 하는지에 대한 배경이고, 실행은 노트북에서 하십시오. 노트북은
 `.ipynb` 를 손으로 고치지 않기 위해 `build_h1_notebook.py` 로 생성합니다.
@@ -46,28 +46,28 @@ cd /mnt/c/Users/PC/Downloads/pdl1-binder-design &&   /mnt/c/Users/PC/Downloads/e
 
 Ala 스캔과 같은 venv 를 직접 호출합니다(레포 1 의 `.venv-linux`).
 GPU 불필요, Colab 과 무관합니다. 스크립트는 `dG_separated` 가 음수가
-아니면 **exit 1 로 멈춥니다** — native 복합체가 통과하지 못하는 기준으로
+아니면 exit 1 로 멈춥니다. native 복합체가 통과하지 못하는 기준으로
 설계를 판정할 수 없습니다.
 
-**B 는 2 단계를 돌릴 때 설계군보다 먼저** native PD-1(4ZQK 사슬 B)로
+B 는 2 단계를 돌릴 때 설계군보다 먼저 native PD-1(4ZQK 사슬 B)로
 도십시오. 이전 작업에서 AF2 의 ipTM 이 native 에서 0.12 가 나와 계면에
 대해 아무 말도 할 수 없게 된 적이 있고, 그때는 양성 대조군을 늦게 돌려서
 늦게 알았습니다.
 
-**둘 다 실패하면 H1 은 측정 불가**이고, 그것을 결론으로 보고합니다.
+둘 다 실패하면 H1 은 측정 불가이고, 그것을 결론으로 보고합니다.
 한쪽만 통과하면 통과한 지표로만 H1 을 보고하고 나머지를 한계에 적습니다.
 
 ---
 
 ## ⓵ 실측 설치 기록 (2026-11-04) — 15개 실패 지점
 
-**아래 ②~④의 계획과 충돌하면 이 절을 따르십시오.** 계획은 실행 전에 쓴
+아래 ②~④의 계획과 충돌하면 이 절을 따르십시오. 계획은 실행 전에 쓴
 것이고 이 절은 실제로 통과한 경로입니다. 설치에만 반나절이 걸렸고 실패가
-15번 났습니다. 그중 **4번은 제(어시스턴트) 판단 착오**였습니다 — 표에
+15번 났습니다. 그중 4번은 제(어시스턴트) 판단 착오였습니다. 표에
 그대로 남깁니다.
 
 재현용 노트북은 `notebooks/H1_dl_binder_design.ipynb`이고, 손으로 고치지
-말고 **생성기 `notebooks/build_h1_notebook.py`를 고쳐 다시 만드십시오**
+말고 생성기 `notebooks/build_h1_notebook.py`를 고쳐 다시 만드십시오
 (.ipynb는 JSON이라 손편집하면 깨집니다). 아래 수정은 전부 생성기에
 반영되어 있습니다.
 
@@ -91,7 +91,7 @@ GPU 불필요, Colab 과 무관합니다. 스크립트는 `dG_separated` 가 음
 
 ### 환경별 numpy가 서로 반대입니다
 
-이게 가장 함정입니다. **두 환경을 같은 핀으로 맞추려 하면 둘 중 하나가 깨집니다.**
+이게 가장 함정입니다. 두 환경을 같은 핀으로 맞추려 하면 둘 중 하나가 깨집니다.
 
 | 환경 | numpy | 핵심 핀 |
 |---|---|---|
@@ -108,15 +108,15 @@ GPU 불필요, Colab 과 무관합니다. 스크립트는 `dG_separated` 가 음
 | AF2 initial guess | 50건 **59분** (1.2분/건) |
 | FastRelax (MPNN 내부) | ~70초/설계, **단일 스레드** |
 
-MPNN의 FastRelax가 단일 스레드이므로 **병렬화 이득이 거기서 나옵니다.** GPU는
+MPNN의 FastRelax가 단일 스레드이므로 병렬화 이득이 거기서 나옵니다. GPU는
 오히려 비워야 합니다(`CUDA_VISIBLE_DEVICES=''`) — 6개 프로세스가 한 GPU를
 다투면 느려집니다.
 
 ### 병렬 단계 뒤에는 반드시 태그를 세십시오
 
-MPNN이 **입력 50건 중 3건을 조용히 떨어뜨렸습니다**(`pdl1_epi2_14`,
+MPNN이 입력 50건 중 3건을 조용히 떨어뜨렸습니다(`pdl1_epi2_14`,
 `pdl1_epi_10`, `pdl1_ctrl2_10`). 오류를 내지 않고 출력 48·49건이 되었습니다.
-`-debug`로 재실행하니 **3/3 전부 "reported success"** — 일시적 실패이고 원인은
+`-debug`로 재실행하니 3/3 전부 "reported success" — 일시적 실패이고 원인은
 특정하지 못했습니다.
 
 세지 않았으면 48 대 49로 AF2를 2시간 돌리고 사전 등록한 n이 깨진 것을
@@ -135,31 +135,31 @@ def tags_of(silent):
 설치를 끝내고 돌린 양성 대조군이 실패했습니다. `pae_interaction` 26.06,
 사슬 순서를 바꿔도 27.67. `plddt_target`은 92인데 `plddt_binder`만 33입니다.
 
-원인은 **AF2 initial guess가 MSA를 쓰지 않는다**는 것입니다
+원인은 AF2 initial guess가 MSA를 쓰지 않는다는 것입니다
 (`predict.py`: `max_extra_msa = 5`, `max_msa_clusters = 5`,
 `make_msa_features(msas=[[feat_holder.seq]])`). native Ig β-sandwich는 단일
 서열로 접히지 않습니다. 반면 de novo 설계는 이상화된 나선 다발이라 단일
-서열로도 접힙니다 — 그래서 **설계에는 쓸 수 있고 native에는 못 쓰는** 지표이고,
+서열로도 접힙니다. 그래서 설계에는 쓸 수 있고 native에는 못 쓰는 지표이고,
 결과적으로 양성 대조군으로 native를 고른 것이 잘못된 선택이었습니다.
 
-사전 등록 §4가 이 분기를 미리 규정해 둔 덕에 판정은 막히지 않았습니다 —
+사전 등록 §4가 이 분기를 미리 규정해 둔 덕에 판정은 막히지 않았습니다.
 `dG_separated`로 승격했고 그쪽 양성 대조군은 통과했습니다(−32.74 REU).
 
 ---
 
 ## ① 두 가지 제약을 먼저 확인
 
-**PyRosetta 라이선스.** `proteinmpnn_fastrelax`는 PyRosetta를 씁니다.
+PyRosetta 라이선스. `proteinmpnn_fastrelax`는 PyRosetta를 씁니다.
 레포 1에서 내린 판단(공개 교육 자료 = 비상업적)이 그대로 적용되며,
 `work/05_rosetta/README_rosetta_note.md`의 고지를 레포 2에도 복사해야 합니다.
-**이 판단은 본 저자의 것이며 독자에게 이전되지 않습니다.**
+이 판단은 본 저자의 것이며 독자에게 이전되지 않습니다.
 
-**Colab과 conda.** 이 레포는 conda 환경 두 개를 전제합니다. Colab에는 conda가
+Colab과 conda. 이 레포는 conda 환경 두 개를 전제합니다. Colab에는 conda가
 없으므로 `condacolab`이나 micromamba를 먼저 깔아야 하고, `condacolab.install()`은
-**런타임을 재시작합니다.** 재시작하면 RFdiffusion 쪽 환경(`/content/rfenv`)과
-`LD_LIBRARY_PATH` 수정이 **모두 사라집니다.**
+런타임을 재시작합니다. 재시작하면 RFdiffusion 쪽 환경(`/content/rfenv`)과
+`LD_LIBRARY_PATH` 수정이 모두 사라집니다.
 
-> **따라서 RFdiffusion 배치를 전부 끝내고 Drive에 백업한 뒤**
+> 따라서 RFdiffusion 배치를 전부 끝내고 Drive에 백업한 뒤
 > 별도 세션에서 이 단계를 시작하십시오. 한 세션에서 둘 다 하려 하면
 > 런타임 재시작으로 앞 작업을 잃습니다.
 
@@ -236,9 +236,9 @@ conda run -n af2_binder_design python af2_initial_guess/predict.py \
 점수는 `out.sc` (또는 `-scorefilename`으로 지정)에 나오고
 `pae_interaction` 열이 H1의 판정값입니다.
 
-**비용을 먼저 재십시오.** Colab 무료 티어는 vCPU 2개입니다.
+비용을 먼저 재십시오. Colab 무료 티어는 vCPU 2개입니다.
 FastRelax는 설계당 수십 초~수 분이며, 50건 × 1서열이면 1~3시간일 수 있습니다.
-**2건으로 시간을 재고 총량을 계산한 뒤** 본실행하십시오 — RFdiffusion에서
+2건으로 시간을 재고 총량을 계산한 뒤 본실행하십시오 — RFdiffusion에서
 54분/설계를 한참 들여다본 것과 같은 실수를 반복하지 않기 위해서입니다.
 
 ---
@@ -246,24 +246,24 @@ FastRelax는 설계당 수십 초~수 분이며, 50건 × 1서열이면 1~3시�
 ## 가벼운 경로 (②에서 막히면)
 
 conda·PyRosetta가 Colab에서 해결되지 않으면, H1을 포기하지 않고도
-아래로 갈 수 있습니다. 대신 **FastRelax가 빠지므로 보고 시 그 차이를
-명시**해야 합니다(원 파이프라인과 숫자를 직접 비교하면 안 됩니다).
+아래로 갈 수 있습니다. 대신 FastRelax가 빠지므로 보고 시 그 차이를
+명시해야 합니다(원 파이프라인과 숫자를 직접 비교하면 안 됩니다).
 
-1. **ProteinMPNN 단독** — `github.com/dauparas/ProteinMPNN`, pip만으로 동작.
+1. ProteinMPNN 단독 — `github.com/dauparas/ProteinMPNN`, pip만으로 동작.
    `--pdb_path_chains A`(binder)와 `--fixed_positions`로 타깃 고정.
    레포 1에서 이미 쓴 도구이므로 설정을 그대로 재사용할 수 있습니다.
-2. **AF2 initial guess 대신 ColabDesign AF2-multimer** — `ipTM`/`pAE`를 얻습니다.
+2. AF2 initial guess 대신 ColabDesign AF2-multimer — `ipTM`/`pAE`를 얻습니다.
    단 레포 1에서 native ipTM 0.12가 나왔던 그 경로이므로,
-   **사전 등록 §4의 양성 대조군(native PD-1)을 반드시 먼저 통과시켜야**
+   사전 등록 §4의 양성 대조군(native PD-1)을 반드시 먼저 통과시켜야
    합니다. 통과하지 못하면 H1은 "측정 실패"로 보고하고 H2만 씁니다.
-3. **PyRosetta 계면 점수** — WSL2 로컬에서 돌립니다(레포 1의 델타 A 스테이지를
+3. PyRosetta 계면 점수 — WSL2 로컬에서 돌립니다(레포 1의 델타 A 스테이지를
    그대로 이식). GPU가 필요 없고 이미 검증된 환경입니다.
 
 ---
 
 ## H2는 지금 당장 계산할 수 있습니다
 
-사전 등록 §5의 **H2는 이 설치를 전혀 기다리지 않습니다.** RFdiffusion 출력
+사전 등록 §5의 H2는 이 설치를 전혀 기다리지 않습니다. RFdiffusion 출력
 PDB만으로 계산됩니다.
 
 ```bash
@@ -273,4 +273,4 @@ python scripts/h2_hotspot_contacts.py "outputs/pdl1_ctrl_*.pdb" \
     --hotspots A32,A106,A109,A132 --group control
 ```
 
-H2가 주 지표이므로, 설치가 길어져도 **핵심 결과는 먼저 손에 들어옵니다.**
+H2가 주 지표이므로, 설치가 길어져도 핵심 결과는 먼저 손에 들어옵니다.

@@ -11,9 +11,9 @@
 
 ## 커밋되지 않은 것
 
-**AF2 initial guess 가 낸 복합체 98건**(약 26 MB)입니다.
+AF2 initial guess 가 낸 복합체 98건(약 26 MB)입니다.
 
-빼는 이유는 용량 하나뿐이고, **측정값을 숨기는 것이 아닙니다.** 이 구조들에서
+빼는 이유는 용량 하나뿐이고, 측정값을 숨기는 것이 아닙니다. 이 구조들에서
 잰 값은 전부 레포에 있습니다.
 
 | 측정 | 어디에 |
@@ -29,11 +29,11 @@
 커밋된 RFdiffusion 백본 100건에서 시작해
 [`../notebooks/H1_dl_binder_design.ipynb`](../notebooks/H1_dl_binder_design.ipynb)
 를 돌리면 복합체 100건이 다시 만들어집니다. 실측 비용은 Colab L4 기준
-**ProteinMPNN 병렬 25.7분 + AF2 군별 59분 × 2**입니다. 설치에서 겪은 15개
+ProteinMPNN 병렬 25.7분 + AF2 군별 59분 × 2입니다. 설치에서 겪은 15개
 실패 지점은 [`../notes/dl_binder_design_setup.md`](../notes/dl_binder_design_setup.md)
 에 정리되어 있습니다.
 
-생성 단계(RFdiffusion)부터 다시 하려면 Colab T4 에서 **1.8분/설계 × 100 ≈
-3시간**이고, 설정은 [`../preregistration.md`](../preregistration.md) §2 에
-고정되어 있습니다. 다만 확산 모델이라 **같은 백본이 다시 나오지는 않습니다.**
+생성 단계(RFdiffusion)부터 다시 하려면 Colab T4 에서 1.8분/설계 × 100 ≈
+3시간이고, 설정은 [`../preregistration.md`](../preregistration.md) §2 에
+고정되어 있습니다. 다만 확산 모델이라 같은 백본이 다시 나오지는 않습니다.
 결론을 재현하려면 커밋된 백본에서 시작하십시오.
