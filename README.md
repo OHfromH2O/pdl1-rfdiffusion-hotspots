@@ -581,7 +581,8 @@ RFdiffusion은 지시받은 자리에 백본을 놓는 일은 양쪽 패치에�
 9위가 대조군의 유일한 에너지 성공 `ctrl_12`인데, 지정 핫스팟을 하나도
 접촉하지 않습니다. 에너지는 괜찮은 계면을 만들었지만 겨냥한 자리가
 아닙니다. 대조군의 성공 한 건조차 "비-에피토프 패치를 겨냥해서" 된 것이
-아닙니다.
+아닙니다. 이 대비는 [결과 10](#10-그림--세-숫자가-한-장에-보입니다)의 두
+그림에서 눈으로도 확인됩니다.
 
 설계군 안에서도 갈립니다. H2b 통과 24건의 `dG` 중앙값 −15.75 REU,
 불통과 26건은 −0.30 REU.
@@ -600,12 +601,42 @@ RFdiffusion은 지시받은 자리에 백본을 놓는 일은 양쪽 패치에�
 군별 `dG_separated` 최저값을 뽑았습니다. 대조군 그림도 같은
 규칙으로 고른 대조군의 최고 설계입니다.
 
-| 그림 | 내용 |
-|---|---|
-| [`fig1a_epitope_face.png`](figures/fig1a_epitope_face.png) | PD-L1 표면의 에피토프 핫스팟(빨강)과 그 위에 앉은 native PD-1 |
-| [`fig1b_control_face.png`](figures/fig1b_control_face.png) | 같은 분자의 반대 면 — 비-에피토프 대조 핫스팟(파랑) |
-| [`fig2_top_design.png`](figures/fig2_top_design.png) | 설계군 1위 `pdl1_epi_23` (`dG` −37.04 REU, 핫스팟 4/4) |
-| [`fig3_control.png`](figures/fig3_control.png) | 대조군 1위 `pdl1_ctrl_12` (`dG` −20.25 REU, 핫스팟 **0/4**) |
+<table>
+<tr>
+<td width="50%"><img src="figures/fig2_top_design.png" alt="설계군 1위 pdl1_epi_23"/></td>
+<td width="50%"><img src="figures/fig3_control.png" alt="대조군 1위 pdl1_ctrl_12"/></td>
+</tr>
+<tr>
+<td><b>설계군 1위 <code>pdl1_epi_23</code></b><br>
+<code>dG</code> −37.04 REU · 핫스팟 4/4 · H2b 통과</td>
+<td><b>대조군 1위 <code>pdl1_ctrl_12</code></b><br>
+<code>dG</code> −20.25 REU · 핫스팟 <b>0/4</b> · H2b 불통과</td>
+</tr>
+</table>
+
+회색이 PD-L1 표면, 주황이 설계한 binder, 연한 청록이 native PD-1입니다.
+빨강은 에피토프 핫스팟 네 개, 파랑은 비-에피토프 대조 핫스팟 네 개입니다.
+두 그림은 같은 축척이고 타깃을 같은 자리에 놓았으므로, 달라 보이는 것은
+binder의 위치뿐입니다.
+
+설계군 1위는 나선 다발이 빨강 패치 위에 docking 되어 native PD-1과 같은
+자리를 차지합니다. 대조군 1위는 긴 나선 하나가 PD-L1 옆면을 가로질러
+지나가며, 지정한 파랑 패치 위에 앉지 않습니다. 결과 9의 `ctrl_12`
+"핫스팟 0/4"가 그림으로 확인됩니다. 에너지(`dG` −20.25 REU)는 괜찮지만
+겨냥한 자리가 아닙니다.
+
+두 핫스팟 패치가 서로 어디에 있는지는 아래 두 장이 보여줍니다.
+
+<table>
+<tr>
+<td width="50%"><img src="figures/fig1a_epitope_face.png" alt="에피토프 면"/></td>
+<td width="50%"><img src="figures/fig1b_control_face.png" alt="대조 면"/></td>
+</tr>
+<tr>
+<td><b>에피토프 면</b><br>빨강 핫스팟 위에 native PD-1이 앉아 있습니다</td>
+<td><b>대조 면</b><br>같은 분자의 반대쪽. 파랑 대조 핫스팟이 있고 PD-1은 뒤로 갑니다</td>
+</tr>
+</table>
 
 두 핫스팟 묶음의 중심은 25.8 Å 떨어져 있고 서로 반대 면입니다.
 한 장에 둘 다 정면으로 담을 수 없어 fig1을 앞/뒤 두 장으로 나눴습니다.
@@ -622,13 +653,6 @@ RFdiffusion은 지시받은 자리에 백본을 놓는 일은 양쪽 패치에�
 두 패치가 비슷한 크기·뭉침이라는 것은 한계 4(방향족 수 불일치)와 별개로
 패치 자체의 기하는 비교할 수 있습니다. 눈대중으로 적지 않기를
 잘했습니다.
-
-fig2와 fig3을 나란히 놓고 보면 차이가 드러납니다. 설계군 1위는 나선 다발이 빨강 패치
-위에 docking 되어 native PD-1과 같은 자리를 차지합니다. 대조군 1위는
-긴 나선 하나가 PD-L1 옆면을 가로질러 지나가며, 지정한 파랑 패치
-위에 앉지 않습니다. 결과 9의 `ctrl_12` "핫스팟 0/4"가 그림으로
-확인됩니다. 에너지(`dG` −20.25 REU)는 괜찮지만 겨냥한 자리가
-아닙니다.
 
 #### 카메라를 계산합니다
 
